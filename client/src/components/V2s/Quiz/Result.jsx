@@ -17,23 +17,13 @@ const Center = styled.div`
 	padding: 50px;
 `;
 
-const Contain = styled(Container)`
-	background-color: #eee3cb;
-	padding: 5%;
-	height: 30%;
-	border-radius: 1%;
-	border: 1px solid black;
-	margin: auto;
-	width: 50%;
-`;
-
 function Result({ result }) {
   const [resultPet, setResultPet] = useState({});
 
   const response = () => {
     if (result === 'noPets') {
       return (
-        <div>
+        <Container>
           <Box
             display="flex"
             justifyContent="center"
@@ -67,7 +57,6 @@ function Result({ result }) {
             />
           </Box>
 
-          {/* <Contain> */}
           <Center>
             <Card sx={{ width: '750px', border: '8px solid #A64B2A' }}>
               <CardMedia
@@ -86,13 +75,12 @@ function Result({ result }) {
           >
             <em>Be Gone From This Site!!!</em>
           </Typography>
-          {/* </Contain> */}
-        </div>
+        </Container>
       );
     }
 
     return (
-      <div>
+      <Container>
         <Typography
           variant="h3"
           align="center"
@@ -112,7 +100,7 @@ function Result({ result }) {
         <Center>
           <Adoption animalData={resultPet} />
         </Center>
-      </div>
+      </Container>
     );
   };
 
