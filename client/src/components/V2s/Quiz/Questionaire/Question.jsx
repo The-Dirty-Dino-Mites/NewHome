@@ -10,7 +10,6 @@ import Typography from '@mui/material/Typography';
 
 const QuestionText = styled(Typography)`
 	color: #5d473d;
-	font-size: 25%;
 `;
 
 const Contain = styled(Container)`
@@ -26,26 +25,28 @@ const Contain = styled(Container)`
 
 function Question({ question, handleChange }) {
   return (
-    <Contain>
-      <FormControl
-        aria-labelledby="radio-buttons-group-label"
-        name="radio-buttons-group"
-        defaultValue={question.answerOptions[0].answerKey}
-      >
-        <QuestionText variant="h5">{question.questionText}</QuestionText>
-        <RadioGroup>
-          {question.answerOptions.map((answer, id) => (
-            <FormControlLabel
-              value={answer.answerKey}
-              control={<Radio />}
-              label={answer.answerText}
-              onChange={handleChange}
-              key={`${answer.answerKey} - ${id}`}
-            />
-          ))}
-        </RadioGroup>
-      </FormControl>
-    </Contain>
+    <Container>
+      <Contain>
+        <FormControl
+          aria-labelledby="radio-buttons-group-label"
+          name="radio-buttons-group"
+          defaultValue={question.answerOptions[0].answerKey}
+        >
+          <QuestionText variant="h5">{question.questionText}</QuestionText>
+          <RadioGroup>
+            {question.answerOptions.map((answer, id) => (
+              <FormControlLabel
+                value={answer.answerKey}
+                control={<Radio />}
+                label={answer.answerText}
+                onChange={handleChange}
+                key={`${answer.answerKey} - ${id}`}
+              />
+            ))}
+          </RadioGroup>
+        </FormControl>
+      </Contain>
+    </Container>
   );
 }
 
