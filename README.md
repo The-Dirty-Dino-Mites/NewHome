@@ -1,21 +1,19 @@
 # NewHome
 Welcome to NewHome, a pet adoption, social experience! You can keep track of pets that your are willing to adopt and take care of any animals you want! 
-<h1>
-<h1>
+
 
 ## Installation:
 To start the application you will need to take the following steps:
-* run  ``` npm install ``` to to install dependencies which will also create the neccesarry ``node_modules`` for those dependencies
+* run  ``` npm install ``` to to install dependencies which will also create the necessary ``node_modules`` for those dependencies
 * run ```npm run build``` to start the webpack compiler (this script can be found in the `package.json`)
 * run ```npm start``` to start the server (this script can be found in the `package.json`)
 * Once you have the server running you can navigate to  http://localhost:8080/home which will bring you to our home page!
-<h1>
-<h1>
+
 
 ## Client side: 
 * This directory will contain the ```dist``` directory (which is created after running the compiler) as well as the ```src ``` directory which will contain the ```components``` folder.
 * Also within this directory the ```index.js```, ```styles.jsx```, ```breed.js```, and ```UserContext.jsx``` files will exist. 
-<h1>
+
 
  ## Within the ``src/components`` directory:
 
@@ -24,7 +22,7 @@ To start the application you will need to take the following steps:
   * This component will render each pet adoption entry that is coming from the PetFinder API. This view will show the pets photo(if included in the api), the pets provided description, as well as the pets name, on a `<Grid>` material UI component
   * It utilizes the UserContext to handle the 'liked (heart)' or 'unliked' status by utilizing a global 'savedPets' array that is being passed down from the UserContext, and will render it's 'liked' status respectivly. 
   * This component also has a couple click handling functions, `handleSavePet()` and `handleUnsave()` which are event handlers that query the database via `axios` and update it's 'in savedList' status and then uses conditional rendering to render the proper heart which idicates that specific pets' status
-  * There is another event handling function that is triggered after clicking the `view more` button, which will redirect the user to the `PetView.jsx` component. 
+  * There is another event handling function that is triggered after clicking the `view more` button, which will redirect the user to the `PetView.jsx` component.
  
   
  ### AdoptionFeed.jsx:
@@ -43,7 +41,7 @@ To start the application you will need to take the following steps:
 
  ### PetView.jsx:
 
-  * This component will render the full view of the single focused pet that is clicked where you will be able view more information about the pet, save the pet, as well as the option to adopt the pet as well
+  * This component will render the full view of the single focused pet that is clicked where you will be able view more information about the pet, save the pet, the option to adopt the pet, as well as a 'location' button which shows the animal's location on a map
   
  ### Post.jsx:
 
@@ -72,11 +70,29 @@ To start the application you will need to take the following steps:
   * Here you can search for different pets by your specifications! You can search by breed, by animal type, by hair length, size, and gender!
   * This component will render a list of animals that meet these specifications, and will give you the ability to view more and focus on a specific animal that a user is interested in
 
-<h1>
-<h1>
+
+ # Newly Added Components during legacy:
+
+  ### TheWheel.jsx
+
+  * This component renders a wheel which will spin and provide the user with a 'winner' pet which is to be adopted. A link will appear after spinning the wheel that will forward the user to the adoption website.
+
+ ### RoulettePick.jsx
+  
+  * This component allows the user to store pets that they are "following" which adds them as options to "TheWheel.jsx" for adoption.
+
+ ### Quiz.jsx
+
+  * This component allows the user to take a quiz in order to determine the type of pet they should adopt.
+
+ ### Chatroom.jsx
+  
+  * This component allows the users to communicate with each other about relative pet care and adoption. It is an open chatroom available to all users (not a PM/DM chatroom)
+
+
 
 ## Server Side and Backend:
-  * This server directory will be the magic that connects the frontend to both the PetFinder api, as well as the mongoDB database that we have for user, and pet information. 
+  * This server directory will be the magic that connects the frontend to both the PetFinder api, as well as the mongoDB database that we have for user, and pet information.
 
   * Within this ``server`` directory you will find the `db` folder as which will containg the `models` folder, `index.js` file for the database connection, and the `mongoSchmema.js` file which will contain the schemas for every model created in the program
 
@@ -137,8 +153,6 @@ To start the application you will need to take the following steps:
   ### user.js: 
 
   * Contains an express.Router `POST` that gets the user, using the users 'googleID', from mongoDB, if not found, creates and saves to thee DB
-<h1>
-<h1>
 
 
 ## Ignored/hidden files:
@@ -177,21 +191,26 @@ To start the application you will need to take the following steps:
   * These are going to be files that will create formatting rules 
 
    ### .eslintrc.json:
-    
-   * This is the file where the actual rulings for eslint exists, some 'best practices' are disabled for usability purposes since some files need to be written a certain way, in which eslint doens't "like"
 
-   ### .eslintignore: 
-  
-  * this file references the neccesarry file paths for eslint to ignore entirely 
+   * This is the file where the actual rulings for eslint exists, some 'best practices' are disabled for usability purposes since some files need to be written a certain way, in which eslint doesn't "like"
 
-   ### .prettierignore: 
+   ### .eslintignore:
 
-   * Similar to eslint, this file will contain styled rulings for the overall syntax of the project, which will handle any formatting issues that it deems appropriate to interpret in such a way. 
+  * this file references the necessary file paths for eslint to ignore entirely
 
-   ### .prettierrc: 
+   ### .prettierignore:
+
+   * Similar to eslint, this file will contain styled rulings for the overall syntax of the project, which will handle any formatting issues that it deems appropriate to interpret in such a way.
+
+   ### .prettierrc:
 
    * Contains the rules for how prettier will style and format the code.
 
-   <h1>
-  <h1>
-  
+
+## Updates from Legacy Group:
+
+  * You will need an additional key from the Dog API, the link below will take you to the sign up page for a key:
+      - https://api.thedogapi.com/
+
+  * You will also need a mapbox API token:
+      - https://www.mapbox.com/
